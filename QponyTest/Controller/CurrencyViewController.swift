@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CurrencyViewController.swift
 //  QponyTest
 //
 //  Created by Paweł Kozioł on 11/02/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CurrencyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,4 +17,3 @@ class ViewController: UIViewController {
 
 
 }
-
