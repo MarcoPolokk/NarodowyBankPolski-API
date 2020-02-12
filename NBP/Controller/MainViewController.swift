@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var currencyManager = CurrencyManager()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -17,11 +19,27 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
         
+        let baseURL = "https://api.nbp.pl/api/exchangerates/tables"
+        let urlString = "\(baseURL)/A"
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let mainData = try JSONDecoder().decode([MainData].self, from: data)
+                print(mainData)
+            } catch let error {
+                print("Error", error)
+            }
+        }.resume()
         
     }
     
     @IBAction func pressedTableA(_ sender: UIButton) {
-        
+        currencyManager.getData(for: "A")
     }
     @IBAction func pressedTableB(_ sender: UIButton) {
         

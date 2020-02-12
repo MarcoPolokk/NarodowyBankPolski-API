@@ -8,10 +8,15 @@
 
 import Foundation
 
-struct CurrencyData: Decodable {
+struct MainData: Codable {
     
     let effectiveDate: String
-    let currency: String
+    let rates: [CurrencyData]
+}
+
+struct CurrencyData: Codable {
+    
     let code: String
+    let currency: String
     let mid: Double
 }

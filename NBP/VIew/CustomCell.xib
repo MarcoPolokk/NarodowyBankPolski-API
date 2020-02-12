@@ -16,55 +16,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="425" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="WEi-28-Qvv">
-                        <rect key="frame" x="0.0" y="0.0" width="425" height="44"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-yz-n8G">
+                        <rect key="frame" x="29" y="14" width="367" height="17"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2005-10-10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKL-wI-gX4">
-                                <rect key="frame" x="10" y="13.5" width="89.5" height="17"/>
+                                <rect key="frame" x="0.0" y="0.0" width="77.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dolar amerykański" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AV-jU-JWI">
-                                <rect key="frame" x="137.5" y="13.5" width="136.5" height="17"/>
+                                <rect key="frame" x="115.5" y="0.0" width="117.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynj-Jw-Bee">
-                                <rect key="frame" x="312" y="13.5" width="33.5" height="17"/>
+                                <rect key="frame" x="271" y="0.0" width="29" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VpS-KP-VD5">
-                                <rect key="frame" x="383.5" y="13.5" width="33.5" height="17"/>
+                                <rect key="frame" x="338" y="0.0" width="29" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="kKL-wI-gX4" firstAttribute="leading" secondItem="WEi-28-Qvv" secondAttribute="leading" constant="10" id="EyC-3F-PfN"/>
-                            <constraint firstAttribute="trailing" secondItem="VpS-KP-VD5" secondAttribute="trailing" constant="10" id="Ivw-Pd-KxC"/>
-                            <constraint firstItem="ynj-Jw-Bee" firstAttribute="top" secondItem="WEi-28-Qvv" secondAttribute="top" constant="13.5" id="PtU-kr-5rB"/>
-                            <constraint firstItem="VpS-KP-VD5" firstAttribute="top" secondItem="WEi-28-Qvv" secondAttribute="top" constant="13.5" id="Rcb-6x-nEF"/>
-                            <constraint firstAttribute="bottom" secondItem="VpS-KP-VD5" secondAttribute="bottom" constant="13.5" id="UhQ-vf-Hgi"/>
-                            <constraint firstAttribute="bottom" secondItem="ynj-Jw-Bee" secondAttribute="bottom" constant="13.5" id="W6T-io-3vr"/>
-                            <constraint firstAttribute="bottom" secondItem="kKL-wI-gX4" secondAttribute="bottom" constant="13.5" id="cMV-LH-LDE"/>
-                            <constraint firstItem="2AV-jU-JWI" firstAttribute="top" secondItem="WEi-28-Qvv" secondAttribute="top" constant="13.5" id="cZn-NA-AjU"/>
-                            <constraint firstAttribute="bottom" secondItem="2AV-jU-JWI" secondAttribute="bottom" constant="13.5" id="grg-hI-LBv"/>
-                            <constraint firstItem="kKL-wI-gX4" firstAttribute="top" secondItem="WEi-28-Qvv" secondAttribute="top" constant="13.5" id="iS3-eU-zmv"/>
-                        </constraints>
                     </stackView>
                 </subviews>
-                <constraints>
-                    <constraint firstAttribute="bottom" secondItem="WEi-28-Qvv" secondAttribute="bottom" id="Bij-WM-QUm"/>
-                    <constraint firstItem="WEi-28-Qvv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fQt-mv-BnV"/>
-                    <constraint firstAttribute="trailing" secondItem="WEi-28-Qvv" secondAttribute="trailing" id="kcE-Br-hGv"/>
-                    <constraint firstItem="WEi-28-Qvv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="que-ln-QZL"/>
-                    <constraint firstItem="WEi-28-Qvv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xFd-54-weV"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -73,7 +54,7 @@
                 <outlet property="currencyValue" destination="VpS-KP-VD5" id="cr8-8a-Mvf"/>
                 <outlet property="placementDate" destination="kKL-wI-gX4" id="PQF-R0-8jw"/>
             </connections>
-            <point key="canvasLocation" x="213.768115942029" y="105.80357142857143"/>
+            <point key="canvasLocation" x="192.0289855072464" y="89.732142857142847"/>
         </tableViewCell>
     </objects>
 </document>
