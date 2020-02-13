@@ -43,6 +43,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Table A"/>
+                                                <connections>
+                                                    <action selector="pressedTableA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1n7-tP-XyS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxc-oE-f08">
                                                 <rect key="frame" x="88" y="0.0" width="60" height="60"/>
@@ -52,6 +55,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Table B"/>
+                                                <connections>
+                                                    <action selector="pressedTableB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kn5-94-5AW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-mk-osE">
                                                 <rect key="frame" x="176" y="0.0" width="61" height="60"/>

@@ -12,4 +12,8 @@ struct K {
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "CustomCell"
     static let currencyViewSegue = "RegisterToChat"
+    
+    static let tableA = "A"
+    static let tableB = "B"
+    static let tableC = "C"
 }
