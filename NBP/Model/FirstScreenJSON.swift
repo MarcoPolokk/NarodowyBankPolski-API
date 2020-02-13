@@ -8,9 +8,14 @@
 
 import Foundation
 
+protocol FirstScreenDataDelegate {
+    func sendDataToFirstViewController(actualDate: String, actualRates: [FirstScreenRates])
+    func didFailWithError(error: Error)
+}
+
 struct FirstScreenJSON {
     
-    var rates = [FirstScreenRates]()
+    var delegate: FirstScreenDataDelegate?
     
     let baseURL = "https://api.nbp.pl/api/exchangerates/tables"
     
@@ -25,12 +30,17 @@ struct FirstScreenJSON {
             guard let data = data else { return }
             
             do {
-                let downloadedData = try JSONDecoder().decode([FirstScreenData].self, from: data)
-                self.rates = downloadedData[rates]
-                print(downloadedData)
-                
+                let firstScreenData = try JSONDecoder().decode([FirstScreenData].self, from: data)
+                let effectiveDate = firstScreenData[0].effectiveDate
+                let rates = firstScreenData[0].rates
+                self.delegate?.sendDataToFirstViewController(actualDate: effectiveDate, actualRates: rates)
+                print(effectiveDate)
+                print(rates)
 //                print(firstScreenData[0].effectiveDate)
-//                print(firstScreenData[0].rates[0])
+//                print(firstScreenData[0].rates.count)
+//                print(firstScreenData[0].rates)
+
+                return
                 
             } catch let error {
                 print("Error", error)

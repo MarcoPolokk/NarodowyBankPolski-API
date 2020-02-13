@@ -11,9 +11,8 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var firstScreenData: [FirstScreenData] = []
+    var effectiveDate: String = ""
     var rates: [FirstScreenRates] = []
-    
-    public var rate = [FirstScreenRates]()
     
     var firstScreenJSON = FirstScreenJSON()
     
@@ -21,9 +20,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstScreenJSON.getData(for: K.tableA)
-        reloadTable()
         
+        firstScreenJSON.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
@@ -31,14 +29,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func pressedTableA(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableA)
+        reloadTable()
     }
     
     @IBAction func pressedTableB(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableB)
+        reloadTable()
     }
     
     @IBAction func pressedTableC(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableC)
+        reloadTable()
     }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
@@ -47,15 +48,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func reloadTable() {
         DispatchQueue.main.async {
-        self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
-//    func activateIndicator() {
-//        activityIndicator.hidesWhenStopped = true
-//        activityIndicator.center = view.center
-//        activityIndicator.startAnimating()
-//    }
+    //    func activateIndicator() {
+    //        activityIndicator.hidesWhenStopped = true
+    //        activityIndicator.center = view.center
+    //        activityIndicator.startAnimating()
+    //    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -66,20 +67,36 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellAtRow = dataSource[indexPath.row]
-//
+        //        let cellAtRow = dataSource[indexPath.row]
+        //
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
-//        cell.
+        //        cell.
         
-//
-//        cell.placementDate?.text = dataSource[0].effectiveDate
-//        cell.currencyName?.text = rates[indexPath.row].currency
-//        cell.currencyCode?.text = rates[indexPath.row].code
-//        cell.currencyValue?.text = rates[indexPath.row].mid
+        //
+        //        cell.placementDate?.text = dataSource[0].effectiveDate
+        //        cell.currencyName?.text = rates[indexPath.row].currency
+        //        cell.currencyCode?.text = rates[indexPath.row].code
+        //        cell.currencyValue?.text = rates[indexPath.row].mid
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         return
     }
+}
+
+
+extension MainViewController: FirstScreenDataDelegate {
+    func sendDataToFirstViewController(actualDate: String, actualRates: [FirstScreenRates]) {
+        DispatchQueue.main.async {
+            self.effectiveDate = actualDate
+            self.rates = actualRates
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+    
+    
 }
