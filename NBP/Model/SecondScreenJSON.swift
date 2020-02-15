@@ -23,10 +23,14 @@ struct SecondScreenJSON {
             guard let data = data else { return }
             
             do {
-                let mainData = try JSONDecoder().decode([SecondScreenData].self, from: data)
-                print(mainData)
+                let secondScreenData = try JSONDecoder().decode([FirstScreenData].self, from: data)
+//                let effectiveDate = firstScreenData[0].effectiveDate
+////                let rates = firstScreenData[0].rates
+//                self.delegate?.sendDataToSecondViewController(actualDate: effectiveDate, actualRates: rates)
+                return
+                
             } catch let error {
-                print("Error", error)
+                print("Error: ", error)
             }
         }.resume()
     }

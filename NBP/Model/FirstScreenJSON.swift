@@ -10,7 +10,6 @@ import Foundation
 
 protocol FirstScreenDataDelegate {
     func sendDataToFirstViewController(actualDate: String, actualRates: [FirstScreenRates])
-    func didFailWithError(error: Error)
 }
 
 struct FirstScreenJSON {
@@ -34,16 +33,10 @@ struct FirstScreenJSON {
                 let effectiveDate = firstScreenData[0].effectiveDate
                 let rates = firstScreenData[0].rates
                 self.delegate?.sendDataToFirstViewController(actualDate: effectiveDate, actualRates: rates)
-                print(effectiveDate)
-                print(rates)
-//                print(firstScreenData[0].effectiveDate)
-//                print(firstScreenData[0].rates.count)
-//                print(firstScreenData[0].rates)
-
                 return
                 
             } catch let error {
-                print("Error", error)
+                print("Error: ", error)
             }
         }.resume()
     }

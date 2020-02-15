@@ -8,15 +8,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var firstScreenData: [FirstScreenData] = []
     var effectiveDate: String = ""
     var rates: [FirstScreenRates] = []
     
-    var selectedCurrency: FirstScreenRates?
-    
     var firstScreenJSON = FirstScreenJSON()
+    
+    var selectedTable = String()
+    var selectedCurrency = String()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,21 +33,26 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBAction func pressedTableA(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableA)
+        selectedTable = K.tableA
         reloadTable()
 
     }
     
     @IBAction func pressedTableB(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableB)
+        selectedTable = K.tableB
         reloadTable()
     }
     
     @IBAction func pressedTableC(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableC)
+        selectedTable = K.tableC
         reloadTable()
     }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
+        print(selectedTable)
+        print(selectedCurrency)
         reloadTable()
     }
     
@@ -70,47 +77,43 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let cellAtRow = dataSource[indexPath.row]
-        //
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
                 let valueString = "Wartość: "
                 cell.placementDate?.text = effectiveDate
                 cell.currencyName?.text = rates[indexPath.row].currency
                 cell.currencyCode?.text = rates[indexPath.row].code
                 cell.currencyValue?.text = "\(valueString)\(rates[indexPath.row].mid)"
+                selectedCurrency = rates[indexPath.row].code
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currencyIndex = rates[indexPath.row]
-        selectedCurrency = currencyIndex
+        
         tableView.deselectRow(at: indexPath, animated: true).self
-        performSegue(withIdentifier: K.currencyDetailSegue, sender: nil)
-        return
+        
+        selectedCurrency = rates[indexPath.row].code
+        
+        performSegue(withIdentifier: K.currencyDetailSegue, sender: UITableViewCell.self)
+        
     }
     
         // MARK: - Navigation
-        func prepare(for segue: UIStoryboardSegue, sender: IndexPath) {
-            if segue.identifier == K.currencyDetailSegue {
-                let destinationVC = segue.destination as! CurrencyViewController
-               
+        func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+            if let destinationVC = segue.destination as? SecondViewController {
+                destinationVC.table = selectedTable
+                destinationVC.code = selectedCurrency
             }
         }
     }
     
 
-
-extension MainViewController: FirstScreenDataDelegate {
+extension FirstViewController: FirstScreenDataDelegate {
     func sendDataToFirstViewController(actualDate: String, actualRates: [FirstScreenRates]) {
         DispatchQueue.main.async {
             self.effectiveDate = actualDate
             self.rates = actualRates
         }
     }
-    
-    func didFailWithError(error: Error) {
-        print(error)
-    }
-    
-    
 }
