@@ -12,14 +12,15 @@ class SecondViewController: UIViewController {
     
     var secondScreenJSON = SecondScreenJSON()
     var firstViewController = FirstViewController()
-    var table = String()
-    var code = String()
+    var selectedTable: String = ""
+    var selectedCurrency: String = ""
 
     @IBOutlet weak var tableView: UITableView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        firstViewController.urlDelegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
@@ -31,7 +32,7 @@ class SecondViewController: UIViewController {
     }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
-        print(table, code)
+        print(selectedCurrency, selectedTable)
 //     secondScreenJSON.getData(for: <#T##String#>, code: <#T##String#>, startDate: <#T##String#>, endDate: <#T##String#>)
     }
     
@@ -46,6 +47,13 @@ extension SecondViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         return cell
     }
+}
 
-
+extension SecondViewController: URLDelegate {
+    func didUpdateEntryInfoForURL(table: String, currency: String) {
+        DispatchQueue.main.async {
+            self.selectedTable = table
+            self.selectedCurrency = currency
+        }
+    }
 }

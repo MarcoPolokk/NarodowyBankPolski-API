@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol URLDelegate {
+    func didUpdateEntryInfoForURL(table: String, currency:String)
+}
+
 
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var urlDelegate: URLDelegate?
     
     var firstScreenData: [FirstScreenData] = []
     var effectiveDate: String = ""
@@ -91,19 +97,19 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true).self
-        
+//        tableView.deselectRow(at: indexPath, animated: true).self
         selectedCurrency = rates[indexPath.row].code
-        
-        performSegue(withIdentifier: K.currencyDetailSegue, sender: UITableViewCell.self)
+        self.urlDelegate?.didUpdateEntryInfoForURL(table: selectedTable, currency: selectedCurrency)
+        performSegue(withIdentifier: K.currencyDetailSegue, sender: (Any).self)
         
     }
     
         // MARK: - Navigation
-        func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if let destinationVC = segue.destination as? SecondViewController {
-                destinationVC.table = selectedTable
-                destinationVC.code = selectedCurrency
+                destinationVC.selectedTable = selectedTable
+                destinationVC.selectedCurrency = selectedCurrency
+                return
             }
         }
     }
