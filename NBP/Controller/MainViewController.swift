@@ -14,6 +14,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var effectiveDate: String = ""
     var rates: [FirstScreenRates] = []
     
+    var selectedCurrency: FirstScreenRates?
+    
     var firstScreenJSON = FirstScreenJSON()
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +32,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func pressedTableA(_ sender: UIButton) {
         firstScreenJSON.getData(for: K.tableA)
         reloadTable()
+
     }
     
     @IBAction func pressedTableB(_ sender: UIButton) {
@@ -70,20 +73,31 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //        let cellAtRow = dataSource[indexPath.row]
         //
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
-        //        cell.
-        
-        //
-        //        cell.placementDate?.text = dataSource[0].effectiveDate
-        //        cell.currencyName?.text = rates[indexPath.row].currency
-        //        cell.currencyCode?.text = rates[indexPath.row].code
-        //        cell.currencyValue?.text = rates[indexPath.row].mid
+                let valueString = "Wartość: "
+                cell.placementDate?.text = effectiveDate
+                cell.currencyName?.text = rates[indexPath.row].currency
+                cell.currencyCode?.text = rates[indexPath.row].code
+                cell.currencyValue?.text = "\(valueString)\(rates[indexPath.row].mid)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currencyIndex = rates[indexPath.row]
+        selectedCurrency = currencyIndex
+        tableView.deselectRow(at: indexPath, animated: true).self
+        performSegue(withIdentifier: K.currencyDetailSegue, sender: nil)
         return
     }
-}
+    
+        // MARK: - Navigation
+        func prepare(for segue: UIStoryboardSegue, sender: IndexPath) {
+            if segue.identifier == K.currencyDetailSegue {
+                let destinationVC = segue.destination as! CurrencyViewController
+               
+            }
+        }
+    }
+    
 
 
 extension MainViewController: FirstScreenDataDelegate {

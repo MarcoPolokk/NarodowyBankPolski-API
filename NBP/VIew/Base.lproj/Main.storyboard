@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-vM-HHT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="605"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7gu-14-HXp" customClass="CustomCell" customModule="NBP" customModuleProvider="target">
@@ -26,47 +26,56 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="A5f-GI-OR0" kind="show" identifier="ShowCurencyDetail" id="PRw-WW-reh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="LmH-Yg-xNw">
-                                <rect key="frame" x="80" y="716" width="254" height="146"/>
+                                <rect key="frame" x="69" y="701" width="276" height="166"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="kC1-dg-u6g">
-                                        <rect key="frame" x="8.5" y="0.0" width="237" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUv-j6-pjq">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                <color key="backgroundColor" red="0.10639015590000001" green="0.2624518871" blue="0.28235638140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="73" height="70"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="MU6-Cm-Z8I"/>
+                                                    <constraint firstAttribute="height" constant="70" id="MU6-Cm-Z8I"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Table A"/>
+                                                <state key="normal" title="Tablica A">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="pressedTableA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1n7-tP-XyS"/>
+                                                    <action selector="pressedTableA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E8O-tP-8mQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxc-oE-f08">
-                                                <rect key="frame" x="88" y="0.0" width="60" height="60"/>
-                                                <color key="backgroundColor" red="0.10639015590000001" green="0.2624518871" blue="0.28235638140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="101" y="0.0" width="73" height="70"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="KJ2-8K-3Cs"/>
+                                                    <constraint firstAttribute="height" constant="70" id="KJ2-8K-3Cs"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Table B"/>
+                                                <state key="normal" title="Tablica B">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="pressedTableB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kn5-94-5AW"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-mk-osE">
-                                                <rect key="frame" x="176" y="0.0" width="61" height="60"/>
-                                                <color key="backgroundColor" red="0.10639015590000001" green="0.2624518871" blue="0.28235638140000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <rect key="frame" x="202" y="0.0" width="74" height="70"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="OHY-1a-J2v"/>
+                                                    <constraint firstAttribute="height" constant="70" id="OHY-1a-J2v"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Table C"/>
+                                                <state key="normal" title="Tablica C">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="pressedTableC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ydU-OC-iIg"/>
                                                 </connections>
@@ -74,13 +83,15 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv6-ds-dJz">
-                                        <rect key="frame" x="95.5" y="96" width="63" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="106.5" y="106" width="63" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="DEV-ZR-5QY"/>
+                                            <constraint firstAttribute="height" constant="60" id="DEV-ZR-5QY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Refresh"/>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <connections>
                                             <action selector="pressedRefresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XLp-h6-KQN"/>
                                         </connections>
@@ -90,21 +101,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="MbI-9w-D3G"/>
-                            <constraint firstItem="eQT-vM-HHT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="N2d-Cx-fpT"/>
-                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Wo6-av-LDo"/>
-                            <constraint firstItem="eQT-vM-HHT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="io5-ry-EF9"/>
-                            <constraint firstItem="eQT-vM-HHT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jz7-KJ-XfD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LmH-Yg-xNw" secondAttribute="trailing" constant="80" id="ng2-P3-Udh"/>
-                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="top" secondItem="eQT-vM-HHT" secondAttribute="bottom" constant="8" id="r3M-Nh-vVz"/>
-                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="top" secondItem="eQT-vM-HHT" secondAttribute="bottom" constant="8" id="ro0-pv-c8j"/>
+                            <constraint firstItem="eQT-vM-HHT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HqB-nu-YMR"/>
+                            <constraint firstItem="eQT-vM-HHT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KPs-Zf-s3W"/>
+                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dIk-Gp-3Op"/>
+                            <constraint firstItem="eQT-vM-HHT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fIU-GD-pe6"/>
+                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="5" id="r5N-W5-IVn"/>
+                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="top" secondItem="eQT-vM-HHT" secondAttribute="bottom" constant="8" id="tyb-9k-U5S"/>
+                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="top" secondItem="eQT-vM-HHT" secondAttribute="bottom" constant="8" id="yQl-u2-iGv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pbe-pM-CYg"/>
                     <connections>
                         <outlet property="tableView" destination="eQT-vM-HHT" id="aIW-eL-hMa"/>
-                        <segue destination="A5f-GI-OR0" kind="show" id="B14-6v-EFR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

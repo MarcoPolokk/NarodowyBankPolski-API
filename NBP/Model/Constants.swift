@@ -11,7 +11,7 @@ import Foundation
 struct K {
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "CustomCell"
-    static let currencyViewSegue = "RegisterToChat"
+    static let currencyDetailSegue = "ShowCurencyDetail"
     
     static let tableA = "A"
     static let tableB = "B"
