@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F63DF5323F3186300150515 /* NBP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F63DF5323F3186300150515 /* NarodowyBankPolski-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NarodowyBankPolski-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F63DF5623F3186300150515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F63DF5823F3186300150515 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5F63DF5A23F3186300150515 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		5F63DF4A23F3186300150515 = {
 			isa = PBXGroup;
 			children = (
-				5F63DF5523F3186300150515 /* NBP */,
+				5F63DF5523F3186300150515 /* NarodowyBankPolski-API */,
 				5F63DF5423F3186300150515 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,12 +64,12 @@
 		5F63DF5423F3186300150515 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F63DF5323F3186300150515 /* NBP.app */,
+				5F63DF5323F3186300150515 /* NarodowyBankPolski-API.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F63DF5523F3186300150515 /* NBP */ = {
+		5F63DF5523F3186300150515 /* NarodowyBankPolski-API */ = {
 			isa = PBXGroup;
 			children = (
 				5F63DF5623F3186300150515 /* AppDelegate.swift */,
@@ -81,7 +81,7 @@
 				5F63DF6123F3186600150515 /* LaunchScreen.storyboard */,
 				5F63DF6423F3186600150515 /* Info.plist */,
 			);
-			path = NBP;
+			path = "NarodowyBankPolski-API";
 			sourceTree = "<group>";
 		};
 		5F63DF6B23F3187600150515 /* Controller */ = {
@@ -132,7 +132,7 @@
 			);
 			name = NBP;
 			productName = QponyTest;
-			productReference = 5F63DF5323F3186300150515 /* NBP.app */;
+			productReference = 5F63DF5323F3186300150515 /* NarodowyBankPolski-API.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +150,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5F63DF4E23F3186300150515 /* Build configuration list for PBXProject "NBP" */;
+			buildConfigurationList = 5F63DF4E23F3186300150515 /* Build configuration list for PBXProject "NarodowyBankPolski-API" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -342,13 +342,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7KLRM5P4S7;
-				INFOPLIST_FILE = "$(SRCROOT)/NBP/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NarodowyBankPolski-API/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pawelkoziol.NBP;
-				PRODUCT_NAME = NBP;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pawelkoziol.NarodowyBankPolski-API";
+				PRODUCT_NAME = "NarodowyBankPolski-API";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -360,13 +360,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7KLRM5P4S7;
-				INFOPLIST_FILE = "$(SRCROOT)/NBP/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NarodowyBankPolski-API/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pawelkoziol.NBP;
-				PRODUCT_NAME = NBP;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pawelkoziol.NarodowyBankPolski-API";
+				PRODUCT_NAME = "NarodowyBankPolski-API";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -375,7 +375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F63DF4E23F3186300150515 /* Build configuration list for PBXProject "NBP" */ = {
+		5F63DF4E23F3186300150515 /* Build configuration list for PBXProject "NarodowyBankPolski-API" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F63DF6523F3186600150515 /* Debug */,

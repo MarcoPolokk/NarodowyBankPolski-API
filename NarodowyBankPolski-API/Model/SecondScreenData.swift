@@ -1,6 +1,6 @@
 //
 //  SecondScreenData.swift
-//  NBP
+//  NarodowyBankPolski-API
 //
 //  Created by Paweł Kozioł on 13/02/2020.
 //  Copyright © 2020 Paweł Kozioł. All rights reserved.
