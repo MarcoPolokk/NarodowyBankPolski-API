@@ -83,13 +83,13 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv6-ds-dJz">
-                                        <rect key="frame" x="106.5" y="106" width="63" height="60"/>
+                                        <rect key="frame" x="103" y="106" width="70" height="60"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="DEV-ZR-5QY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Refresh">
+                                        <state key="normal" title="Odśwież">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -160,8 +160,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PaB-Rn-Ase">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="293"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="395-1r-XNe">
-                                                <rect key="frame" x="168" y="0.0" width="78" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data początkowa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="395-1r-XNe">
+                                                <rect key="frame" x="141" y="0.0" width="132" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -176,11 +176,11 @@
                                                 </date>
                                                 <locale key="locale" localeIdentifier="pl"/>
                                                 <connections>
-                                                    <action selector="startDatePicker:" destination="A5f-GI-OR0" eventType="valueChanged" id="Gix-zm-woU"/>
+                                                    <action selector="startDatePickerChanged:" destination="A5f-GI-OR0" eventType="valueChanged" id="Gix-zm-woU"/>
                                                 </connections>
                                             </datePicker>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn8-D0-NmR">
-                                                <rect key="frame" x="172" y="116.5" width="70" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data końcowa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn8-D0-NmR">
+                                                <rect key="frame" x="153" y="116.5" width="108" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -195,17 +195,17 @@
                                                 </date>
                                                 <locale key="locale" localeIdentifier="pl"/>
                                                 <connections>
-                                                    <action selector="endDatePicker:" destination="A5f-GI-OR0" eventType="valueChanged" id="Rg1-Rk-cga"/>
+                                                    <action selector="endDatePickerChanged:" destination="A5f-GI-OR0" eventType="valueChanged" id="Rg1-Rk-cga"/>
                                                 </connections>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu1-0l-gQc">
-                                                <rect key="frame" x="175.5" y="233" width="63" height="60"/>
+                                                <rect key="frame" x="172" y="233" width="70" height="60"/>
                                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="fqP-Ad-i9N"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Refresh">
+                                                <state key="normal" title="Odśwież">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
@@ -243,6 +243,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="QVD-tW-gVE"/>
                     <connections>
+                        <outlet property="endDatePicker" destination="1cm-8s-1Bz" id="gUs-qd-EwU"/>
+                        <outlet property="startDatePicker" destination="HSR-vf-dPi" id="Dn5-Lh-rla"/>
                         <outlet property="tableView" destination="SfF-bt-OBp" id="7Px-g8-02D"/>
                     </connections>
                 </viewController>

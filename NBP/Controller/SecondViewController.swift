@@ -8,52 +8,79 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITableViewDataSource {
     
     var secondScreenJSON = SecondScreenJSON()
-    var firstViewController = FirstViewController()
+    
+    var currency: String = ""
+    var code: String = ""
+    var rates: [SecondScreenRates] = []
+    
     var selectedTable: String = ""
     var selectedCurrency: String = ""
-
-    @IBOutlet weak var tableView: UITableView!
+    var startDate = String()
+    var endDate = String()
     
-
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var startDatePicker: UIDatePicker!
+    @IBOutlet weak var endDatePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstViewController.urlDelegate = self
+        
+        secondScreenJSON.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
-
-    @IBAction func startDatePicker(_ sender: UIDatePicker) {
+    
+  //MARK: - UIDatePickers functionality
+    @IBAction func startDatePickerChanged(_ sender: UIDatePicker) {
+        let startDateHolder = startDatePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        startDate = dateFormatter.string(from: startDateHolder)
     }
-
-    @IBAction func endDatePicker(_ sender: UIDatePicker) {
+    
+    @IBAction func endDatePickerChanged(_ sender: UIDatePicker) {
+        let endDateHolder = endDatePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+        endDate = dateFormatter.string(from: endDateHolder)
     }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
-        print(selectedCurrency, selectedTable)
-//     secondScreenJSON.getData(for: <#T##String#>, code: <#T##String#>, startDate: <#T##String#>, endDate: <#T##String#>)
+        secondScreenJSON.getData(for: selectedTable, code: selectedCurrency, startDate: startDate, endDate: endDate)
+    }
+
+//MARK: - UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rates.count
     }
     
-}
-
-extension SecondViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
+        
+        let valueString = "Wartość: "
+        cell.placementDate?.text = rates[indexPath.row].effectiveDate
+        cell.currencyName?.text = rates[indexPath.row].currency
+        cell.currencyCode?.text = code
+        cell.currencyValue?.text = "\(valueString)\(rates[indexPath.row].mid)"
         return cell
     }
 }
 
-extension SecondViewController: URLDelegate {
-    func didUpdateEntryInfoForURL(table: String, currency: String) {
+//MARK: - SecondScreenDataDelegate
+extension SecondViewController: SecondScreenDataDelegate {
+    
+    func sendDataToSecondViewController(actualCurrencyName: String, actualCode: String, actualRates: [SecondScreenRates]) {
         DispatchQueue.main.async {
-            self.selectedTable = table
-            self.selectedCurrency = currency
+            self.currency = actualCurrencyName
+            self.code = actualCode
+            self.rates = actualRates
         }
+        
     }
+    
+    
 }
+

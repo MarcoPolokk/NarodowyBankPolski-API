@@ -19,5 +19,5 @@ struct SecondScreenRates: Codable {
     
     let effectiveDate: String
     let currency: String
-    let mid: String
+    let mid: Double
 }
