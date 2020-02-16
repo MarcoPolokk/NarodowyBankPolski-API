@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="605"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7gu-14-HXp" customClass="CustomCell" customModule="NBP" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="7gu-14-HXp" customClass="CustomCell" customModule="NBP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7gu-14-HXp" id="W1I-UD-cEm">
@@ -135,7 +135,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="473"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4s6-Xq-pay" customClass="CustomCell" customModule="NBP" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="4s6-Xq-pay" customClass="CustomCell" customModule="NBP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4s6-Xq-pay" id="OEA-zR-QeX">
@@ -166,11 +166,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="HSR-vf-dPi">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSR-vf-dPi">
                                                 <rect key="frame" x="47" y="28.5" width="320" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="5tB-aw-t1q"/>
                                                 </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="130257980.4432373">
+                                                    <!--2005-02-16 14:46:20 +0000-->
+                                                </date>
                                                 <date key="minimumDate" timeIntervalSinceReferenceDate="31618800">
                                                     <!--2002-01-01 23:00:00 +0000-->
                                                 </date>
@@ -185,11 +188,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="1cm-8s-1Bz">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cm-8s-1Bz">
                                                 <rect key="frame" x="47" y="145" width="320" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="bFy-Ey-iCt"/>
                                                 </constraints>
+                                                <date key="date" timeIntervalSinceReferenceDate="132677202.88243306">
+                                                    <!--2005-03-16 14:46:42 +0000-->
+                                                </date>
                                                 <date key="minimumDate" timeIntervalSinceReferenceDate="31618800">
                                                     <!--2002-01-01 23:00:00 +0000-->
                                                 </date>

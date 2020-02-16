@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var secondScreenJSON = SecondScreenJSON()
     
@@ -29,6 +29,7 @@ class SecondViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         secondScreenJSON.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
@@ -50,9 +51,19 @@ class SecondViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
         secondScreenJSON.getData(for: selectedTable, code: selectedCurrency, startDate: startDate, endDate: endDate)
+        reloadTable()
+    }
+    
+    func reloadTable() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
 //MARK: - UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rates.count
     }
@@ -61,8 +72,8 @@ class SecondViewController: UIViewController, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
         
         let valueString = "Wartość: "
+        cell.currencyName.isHidden = true
         cell.placementDate?.text = rates[indexPath.row].effectiveDate
-        cell.currencyName?.text = rates[indexPath.row].currency
         cell.currencyCode?.text = code
         cell.currencyValue?.text = "\(valueString)\(rates[indexPath.row].mid)"
         return cell
@@ -80,7 +91,5 @@ extension SecondViewController: SecondScreenDataDelegate {
         }
         
     }
-    
-    
 }
 

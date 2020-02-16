@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class FirstViewController: UIViewController, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var firstScreenJSON = FirstScreenJSON()
     
@@ -27,6 +27,7 @@ class FirstViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         
         firstScreenJSON.delegate = self
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
@@ -91,7 +92,6 @@ class FirstViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true).self
         selectedCurrency = rates[indexPath.row].code
         
         performSegue(withIdentifier: K.currencyDetailSegue, sender: (Any).self)

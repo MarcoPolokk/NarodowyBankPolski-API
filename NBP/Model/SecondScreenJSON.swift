@@ -31,14 +31,14 @@ struct SecondScreenJSON {
             
             do {
                 let secondScreenData = try JSONDecoder().decode(SecondScreenData.self, from: data)
-                //                let currency = secondScreenData.currency
-                //                let code = secondScreenData.code
-                //                let rates = secondScreenData.rates
-                //                self.delegate?.sendDataToSecondViewController(actualCurrencyName: currency, actualCode: code, actualRates: rates)
+                let currency = secondScreenData.currency
+                let code = secondScreenData.code
+                let rates = secondScreenData.rates
+                self.delegate?.sendDataToSecondViewController(actualCurrencyName: currency, actualCode: code, actualRates: rates)
+                print(secondScreenData)
                 return
                 
             } catch let error {
-                print(SecondScreenData.self)
                 print("Error: ", error)
             }
         }.resume()
