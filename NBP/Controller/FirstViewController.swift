@@ -8,12 +8,10 @@
 
 import UIKit
 
-
-
-
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var firstScreenJSON = FirstScreenJSON()
+    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
     var effectiveDate: String = ""
     var rates: [FirstScreenRates] = []
@@ -32,28 +30,27 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
     
-   //MARK: - Button functions
+    //MARK: - Button functions
     @IBAction func pressedTableA(_ sender: UIButton) {
+        activateIndicator()
         firstScreenJSON.getData(for: K.tableA)
         selectedTable = K.tableA
-        reloadTable()
-        
     }
     
     @IBAction func pressedTableB(_ sender: UIButton) {
+        activateIndicator()
         firstScreenJSON.getData(for: K.tableB)
         selectedTable = K.tableB
-        reloadTable()
     }
     
     @IBAction func pressedTableC(_ sender: UIButton) {
+        activateIndicator()
         firstScreenJSON.getData(for: K.tableC)
         selectedTable = K.tableC
-        reloadTable()
     }
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
-        reloadTable()
+        activateIndicator()
     }
     
     func reloadTable() {
@@ -62,11 +59,16 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    //    func activateIndicator() {
-    //        activityIndicator.hidesWhenStopped = true
-    //        activityIndicator.center = view.center
-    //        activityIndicator.startAnimating()
-    //    }
+    func activateIndicator() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (Timer) in
+            self.activityIndicator.stopAnimating()
+            self.reloadTable()
+        }
+    }
     
     //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -95,7 +97,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         selectedCurrency = rates[indexPath.row].code
         
         performSegue(withIdentifier: K.currencyDetailSegue, sender: (Any).self)
-        
     }
     
     // MARK: - Navigation prepare
@@ -106,7 +107,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             return
         }
     }
-    
 }
 
 //MARK: - FirstScreenDataDelegate

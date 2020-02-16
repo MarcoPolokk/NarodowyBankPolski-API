@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SecondViewController: UIViewController, UITableViewDataSource {
     
     var secondScreenJSON = SecondScreenJSON()
+    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
     var currency: String = ""
     var code: String = ""
@@ -29,12 +30,11 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         secondScreenJSON.delegate = self
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
     
-  //MARK: - UIDatePickers functionality
+    //MARK: - UIDatePickers functionality
     @IBAction func startDatePickerChanged(_ sender: UIDatePicker) {
         let startDateHolder = startDatePicker.date
         let dateFormatter = DateFormatter()
@@ -51,7 +51,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBAction func pressedRefresh(_ sender: UIButton) {
         secondScreenJSON.getData(for: selectedTable, code: selectedCurrency, startDate: startDate, endDate: endDate)
-        reloadTable()
+        activateIndicator()
     }
     
     func reloadTable() {
@@ -59,11 +59,23 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             self.tableView.reloadData()
         }
     }
-
-//MARK: - UITableViewDataSource
+    
+    func activateIndicator() {
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (Timer) in
+            self.activityIndicator.stopAnimating()
+            self.reloadTable()
+        }
+    }
+    
+    //MARK: - UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rates.count
     }
@@ -76,6 +88,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         cell.placementDate?.text = rates[indexPath.row].effectiveDate
         cell.currencyCode?.text = code
         cell.currencyValue?.text = "\(valueString)\(rates[indexPath.row].mid)"
+        self.title = currency
         return cell
     }
 }
@@ -89,7 +102,6 @@ extension SecondViewController: SecondScreenDataDelegate {
             self.code = actualCode
             self.rates = actualRates
         }
-        
     }
 }
 
