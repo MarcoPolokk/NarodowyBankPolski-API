@@ -1,6 +1,6 @@
 //
 //  CurrencyManager.swift
-//  NarodowyBankPolski-API
+//  NationalBankOfPoland
 //
 //  Created by Paweł Kozioł on 11/02/2020.
 //  Copyright © 2020 Paweł Kozioł. All rights reserved.
@@ -16,11 +16,9 @@ struct FirstScreenJSON {
     
     var delegate: FirstScreenDataDelegate?
     
-    let baseURL = "https://api.nbp.pl/api/exchangerates/tables"
-    
     func getData(for table: String) {
         
-        let urlString = "\(baseURL)/\(table)"
+        let urlString = "\(K.baseURL1)/\(table)"
         
         guard let url = URL(string: urlString) else { return }
         
@@ -36,7 +34,7 @@ struct FirstScreenJSON {
                 return
                 
             } catch let error {
-                print("Error: ", error)
+                print(K.err, error)
             }
         }.resume()
     }

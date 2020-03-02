@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="foC-0y-4Tz">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,16 +11,16 @@
         <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="NarodowyBankPolski_API" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="NationalBankOfPoland" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eQT-vM-HHT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="605"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="7gu-14-HXp" customClass="CustomCell" customModule="NarodowyBankPolski_API" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="7gu-14-HXp" customClass="CustomCell" customModule="NationalBankOfPoland" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7gu-14-HXp" id="W1I-UD-cEm">
@@ -33,49 +34,64 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="LmH-Yg-xNw">
-                                <rect key="frame" x="69" y="701" width="276" height="166"/>
+                                <rect key="frame" x="74.5" y="696" width="265" height="166"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="kC1-dg-u6g">
-                                        <rect key="frame" x="0.0" y="0.0" width="276" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUv-j6-pjq">
-                                                <rect key="frame" x="0.0" y="0.0" width="73" height="70"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="MU6-Cm-Z8I"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Tablica A">
+                                                <state key="normal" title="Tabela A">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="pressedTableA:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bwc-s0-PCn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxc-oE-f08">
-                                                <rect key="frame" x="101" y="0.0" width="73" height="70"/>
+                                                <rect key="frame" x="98" y="0.0" width="69" height="70"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="KJ2-8K-3Cs"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Tablica B">
+                                                <state key="normal" title="Tabela B">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="pressedTableB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fGm-4o-Gl8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-mk-osE">
-                                                <rect key="frame" x="202" y="0.0" width="74" height="70"/>
+                                                <rect key="frame" x="195" y="0.0" width="70" height="70"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="OHY-1a-J2v"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Tablica C">
+                                                <state key="normal" title="Tabela C">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="pressedTableC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UIm-IW-hxT"/>
                                                 </connections>
@@ -83,7 +99,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv6-ds-dJz">
-                                        <rect key="frame" x="103" y="106" width="70" height="60"/>
+                                        <rect key="frame" x="97.5" y="106" width="70" height="60"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="DEV-ZR-5QY"/>
@@ -92,6 +108,11 @@
                                         <state key="normal" title="Odśwież">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="pressedRefresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XLp-h6-KQN"/>
                                         </connections>
@@ -105,7 +126,7 @@
                             <constraint firstItem="eQT-vM-HHT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KPs-Zf-s3W"/>
                             <constraint firstItem="LmH-Yg-xNw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dIk-Gp-3Op"/>
                             <constraint firstItem="eQT-vM-HHT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fIU-GD-pe6"/>
-                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="5" id="r5N-W5-IVn"/>
+                            <constraint firstItem="LmH-Yg-xNw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="r5N-W5-IVn"/>
                             <constraint firstItem="LmH-Yg-xNw" firstAttribute="top" secondItem="eQT-vM-HHT" secondAttribute="bottom" constant="8" id="tyb-9k-U5S"/>
                             <constraint firstItem="LmH-Yg-xNw" firstAttribute="top" secondItem="eQT-vM-HHT" secondAttribute="bottom" constant="8" id="yQl-u2-iGv"/>
                         </constraints>
@@ -123,7 +144,7 @@
         <!--Second View Controller-->
         <scene sceneID="GPb-ae-ye9">
             <objects>
-                <viewController id="A5f-GI-OR0" customClass="SecondViewController" customModule="NarodowyBankPolski_API" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="A5f-GI-OR0" customClass="SecondViewController" customModule="NationalBankOfPoland" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aZm-zT-BlF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="473"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="4s6-Xq-pay" customClass="CustomCell" customModule="NarodowyBankPolski_API" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" id="4s6-Xq-pay" customClass="CustomCell" customModule="NationalBankOfPoland" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4s6-Xq-pay" id="OEA-zR-QeX">
@@ -208,6 +229,11 @@
                                                 <state key="normal" title="Odśwież">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="pressedRefresh:" destination="A5f-GI-OR0" eventType="touchUpInside" id="k4h-rd-9Ap"/>
                                                 </connections>
@@ -250,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oj9-Wx-TDz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839.1304347826087" y="114.50892857142857"/>
+            <point key="canvasLocation" x="1857" y="115"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ak-lF-grp">
@@ -268,7 +294,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujn-up-ant" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+            <point key="canvasLocation" x="235" y="115"/>
         </scene>
     </scenes>
 </document>

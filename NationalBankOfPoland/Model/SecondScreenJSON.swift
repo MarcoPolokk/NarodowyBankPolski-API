@@ -1,6 +1,6 @@
 //
 //  SecondScreenJSON.swift
-//  NarodowyBankPolski-API
+//  NationalBankOfPoland
 //
 //  Created by Paweł Kozioł on 13/02/2020.
 //  Copyright © 2020 Paweł Kozioł. All rights reserved.
@@ -16,12 +16,9 @@ struct SecondScreenJSON {
     
     var delegate: SecondScreenDataDelegate?
     
-    let baseURL = "https://api.nbp.pl/api/exchangerates/rates"
-    let jsonFormat = "?format=JSON"
-    
     func getData(for table: String, code: String, startDate: String, endDate: String) {
         
-        let urlString = "\(baseURL)/\(table)/\(code)/\(startDate)/\(endDate)/\(jsonFormat)"
+        let urlString = "\(K.baseURL2)/\(table)/\(code)/\(startDate)/\(endDate)"
         
         guard let url = URL(string: urlString) else { return }
         
@@ -39,7 +36,7 @@ struct SecondScreenJSON {
                 return
                 
             } catch let error {
-                print("Error: ", error)
+                print(K.err, error)
             }
         }.resume()
     }

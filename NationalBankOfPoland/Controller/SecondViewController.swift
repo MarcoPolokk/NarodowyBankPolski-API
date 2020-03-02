@@ -11,14 +11,14 @@ import UIKit
 class SecondViewController: UIViewController, UITableViewDataSource {
     
     var secondScreenJSON = SecondScreenJSON()
-    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
     
-    var currency: String = ""
-    var code: String = ""
+    var currency = String()
+    var code = String()
     var rates: [SecondScreenRates] = []
     
-    var selectedTable: String = ""
-    var selectedCurrency: String = ""
+    var selectedTable = String()
+    var selectedCurrency = String()
     var startDate = String()
     var endDate = String()
     

@@ -11,9 +11,9 @@ import UIKit
 class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var firstScreenJSON = FirstScreenJSON()
-    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
     
-    var effectiveDate: String = ""
+    var effectiveDate = String()
     var rates: [FirstScreenRates] = []
     
     var selectedTable = String()
@@ -80,7 +80,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
         let valueString = "Wartość: "
         cell.placementDate?.text = effectiveDate
@@ -93,7 +92,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         selectedCurrency = rates[indexPath.row].code
         
         performSegue(withIdentifier: K.currencyDetailSegue, sender: (Any).self)
@@ -118,3 +116,5 @@ extension FirstViewController: FirstScreenDataDelegate {
         }
     }
 }
+
+
