@@ -12,9 +12,12 @@ struct K {
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "CustomCell"
     static let currencyDetailSegue = "ShowCurencyDetail"
+    static let err = "Error: "
+    static let dateFormat = "YYYY-MM-dd"
+    static let valueIs = "Wartość: "
+    
     static let baseURL1 = "https://api.nbp.pl/api/exchangerates/tables"
     static let baseURL2 = "https://api.nbp.pl/api/exchangerates/rates"
-    static let err = "Error: "
     
     static let tableA = "A"
     static let tableB = "B"

@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  NBP
+//  NationalBankOfPoland
 //
 //  Created by Paweł Kozioł on 11/02/2020.
 //  Copyright © 2020 Paweł Kozioł. All rights reserved.
@@ -43,12 +43,6 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         selectedTable = K.tableB
     }
     
-    @IBAction func pressedTableC(_ sender: UIButton) {
-        activateIndicator()
-        firstScreenJSON.getData(for: K.tableC)
-        selectedTable = K.tableC
-    }
-    
     @IBAction func pressedRefresh(_ sender: UIButton) {
         activateIndicator()
     }
@@ -81,7 +75,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
-        let valueString = "Wartość: "
+        let valueString = K.valueIs
         cell.placementDate?.text = effectiveDate
         cell.currencyName?.text = rates[indexPath.row].currency
         cell.currencyCode?.text = rates[indexPath.row].code

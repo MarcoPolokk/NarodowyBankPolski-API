@@ -1,6 +1,6 @@
 //
 //  CurrencyViewController.swift
-//  NBP
+//  NationalBankOfPoland
 //
 //  Created by Paweł Kozioł on 11/02/2020.
 //  Copyright © 2020 Paweł Kozioł. All rights reserved.
@@ -34,18 +34,26 @@ class SecondViewController: UIViewController, UITableViewDataSource {
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
     
-    //MARK: - UIDatePickers functionality
+    //MARK: - ViewController functionality
     @IBAction func startDatePickerChanged(_ sender: UIDatePicker) {
-        let startDateHolder = startDatePicker.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
-        startDate = dateFormatter.string(from: startDateHolder)
+        startDatePickerFunctionality()
     }
     
     @IBAction func endDatePickerChanged(_ sender: UIDatePicker) {
+        endDatePickerFunctionality()
+    }
+    
+    func startDatePickerFunctionality() {
+        let startDateHolder = startDatePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = K.dateFormat
+        startDate = dateFormatter.string(from: startDateHolder)
+    }
+    
+    func endDatePickerFunctionality() {
         let endDateHolder = endDatePicker.date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd"
+        dateFormatter.dateFormat = K.dateFormat
         endDate = dateFormatter.string(from: endDateHolder)
     }
     
@@ -56,6 +64,8 @@ class SecondViewController: UIViewController, UITableViewDataSource {
     
     func reloadTable() {
         DispatchQueue.main.async {
+            self.startDatePickerFunctionality()
+            self.endDatePickerFunctionality()
             self.tableView.reloadData()
         }
     }
@@ -83,7 +93,7 @@ class SecondViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as? CustomCell else { return UITableViewCell() }
         
-        let valueString = "Wartość: "
+        let valueString = K.valueIs
         cell.currencyName.isHidden = true
         cell.placementDate?.text = rates[indexPath.row].effectiveDate
         cell.currencyCode?.text = code
