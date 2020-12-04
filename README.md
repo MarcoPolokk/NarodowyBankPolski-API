@@ -19,4 +19,4 @@ The "api.nbp.pl" website provides public Web API enabling HTTP clients to query 
 **6.Cells of UITableView are customized and autolayout is set up to vertical screen.**<br/>
 
 Screenshots:<br/>
-<img src="Screenshots/nbp-1.png" width="250" height="500"/> <img src="Screenshots/nbp-2.png" width="250" height="500"/><br/> <img src="Screenshots/nbp-3.png" width="250" height="500"/> <img src="Screenshots/nbp-4.png.PNG" width="250" height="500"/>
+<img src="Screenshots/nbp-1.png" width="250" height="500"/> <img src="Screenshots/nbp-2.png" width="250" height="500"/><br/> <img src="Screenshots/nbp-3.png" width="250" height="500"/> <img src="Screenshots/nbp-4.png" width="250" height="500"/>
