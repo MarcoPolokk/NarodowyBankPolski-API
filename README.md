@@ -5,8 +5,8 @@ The "api.nbp.pl" website provides public Web API enabling HTTP clients to query 
 **Description:**<br/>
 
 **1.After button click, TableView will show you current and archived foreign exchange rates:**<br/>
--Table A of average exchange rates of foreign currencies,<br/>
--Table B of average foreign exchange rates,<br/>
+- Table A of average exchange rates of foreign currencies,<br/>
+- Table B of average foreign exchange rates.<br/>
 
 **2.Pressing the cell with the currency will take you to SecondVC, you can go back to FirstVC with navigation pane.**<br/>
 
